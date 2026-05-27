@@ -913,7 +913,126 @@ Thumbs.db
 ```
 ![Creation of .gitignore file](screenshots/creating-.gitignore-file.png)
 
-# LAB 13 - Update GitHub Repo
+# 🚀 PART 13 — Cleanup AWS Resources
+
+## 🎯 Objective
+
+Delete all AWS resources created during this project to avoid unnecessary AWS charges.
+
+---
+
+# Step 1 — Verify Running EC2 Instances
+
+Run:
+
+```bash
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,State.Name]' --output table
+```
+![Verification of Running EC2 Instances](screenshots/verification-of-running-ec2-instances.png)
+---
+
+# Step 2 — Terminate EC2 Instance
+
+Replace:
+
+```text
+INSTANCE_ID
+```
+
+With your actual EC2 instance ID.
+
+```text
+i-00406d97dbcaf9d17
+```
+
+Run:
+
+```bash
+aws ec2 terminate-instances --instance-ids INSTANCE_ID
+```
+
+Example:
+
+```bash
+aws ec2 terminate-instances --instance-ids i-00406d97dbcaf9d17
+```
+![EC2 Instance Termination](screenshots/ec2-instance-termination.png)
+---
+
+# Step 3 — Verify Instance Termination
+
+```bash
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,State.Name]' --output table
+```
+
+Expected state:
+
+```text
+terminated
+```
+![EC2 Instance Termination Verification](screenshots/ec2-instance-termination-verification.png)
+---
+
+# Step 4 — Delete Security Group
+
+Run:
+
+```bash
+aws ec2 delete-security-group --group-name python-monitoring-sg
+```
+![Security Group Deletion](screenshots/security-group-deletion.png)
+---
+
+# Step 5 — Delete Key Pair from AWS
+
+Run:
+
+```bash
+aws ec2 delete-key-pair --key-name devops-python-key
+```
+![AWS Key Pair Deletion](screenshots/aws-key-pair-deletion.png)
+---
+
+# Step 6 — Delete Local PEM File
+
+Linux/macOS:
+
+```bash
+rm -f devops-python-key.pem
+```
+![Local PEM File Deletion](screenshots/local-pem-file-deletion.png)
+
+Windows PowerShell:
+
+```powershell
+Remove-Item devops-python-key.pem
+```
+
+---
+
+# Step 7 — Deactivate Python Virtual Environment
+
+If virtual environment is active:
+
+```bash
+deactivate
+```
+
+---
+
+# ✅ Final Cleanup Complete
+
+All resources created for this project have now been removed:
+
+✅ EC2 Instance Deleted  
+✅ Security Group Deleted  
+✅ AWS Key Pair Deleted  
+✅ Local PEM File Removed  
+✅ Monitoring Environment Cleaned Up  
+
+This helps prevent unnecessary AWS billing charges.
+
+# LAB 14 - Update GitHub Repo
 
 1. Authenticate GitHub CLI:
 
