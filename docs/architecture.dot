@@ -1,0 +1,143 @@
+digraph AWS_Python_Monitoring_Architecture {
+
+  rankdir=TB;
+  splines=true;
+  nodesep=0.8;
+  ranksep=1.0;
+
+  bgcolor="white";
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor=lightblue,
+    color=black,
+    fontname="Helvetica",
+    fontsize=12
+  ];
+
+  edge [
+    color=gray40,
+    penwidth=1.5,
+    arrowsize=0.8
+  ];
+
+  Student [
+    shape=oval,
+    fillcolor=lightgreen,
+    label="DevOps Engineer / Student"
+  ];
+
+  AWS [
+    shape=component,
+    fillcolor=orange,
+    label="AWS Cloud Platform"
+  ];
+
+  EC2 [
+    shape=box3d,
+    fillcolor=lightyellow,
+    label="Ubuntu EC2 Server\n(t2.micro)"
+  ];
+
+  SSH [
+    fillcolor=lightcyan,
+    label="SSH Connection\nTerminal / Git Bash"
+  ];
+
+  Python [
+    shape=box3d,
+    fillcolor=lightpink,
+    label="Python 3\nVirtual Environment"
+  ];
+
+  Script [
+    fillcolor=khaki,
+    label="monitor.py\nMonitoring Script"
+  ];
+
+  CPU [
+    fillcolor=mistyrose,
+    label="CPU Monitoring"
+  ];
+
+  Memory [
+    fillcolor=lavender,
+    label="Memory Monitoring"
+  ];
+
+  Disk [
+    fillcolor=lightsteelblue1,
+    label="Disk Monitoring"
+  ];
+
+  Alerts [
+    fillcolor=tomato,
+    label="Alert System\nThreshold Warnings"
+  ];
+
+  Logs [
+    shape=folder,
+    fillcolor=lightgoldenrod1,
+    label="Log Files\nserver-report.log\nalerts.log"
+  ];
+
+  Cron [
+    fillcolor=thistle,
+    label="Cron Jobs\nAutomation Every Minute"
+  ];
+
+  Output [
+    shape=note,
+    fillcolor=white,
+    label="Monitoring Reports\nAlert Notifications\nServer Health Status"
+  ];
+
+  Student -> AWS [
+    label="Launch EC2"
+  ];
+
+  Student -> SSH [
+    label="Connect via SSH"
+  ];
+
+  SSH -> EC2 [
+    label="Remote Access"
+  ];
+
+  EC2 -> Python [
+    label="Install Python + psutil"
+  ];
+
+  Python -> Script [
+    label="Execute Script"
+  ];
+
+  Script -> CPU;
+  Script -> Memory;
+  Script -> Disk;
+
+  CPU -> Alerts;
+  Memory -> Alerts;
+  Disk -> Alerts;
+
+  Alerts -> Logs [
+    label="Save Alerts"
+  ];
+
+  Script -> Logs [
+    label="Save Monitoring Reports"
+  ];
+
+  Cron -> Script [
+    label="Run Every Minute"
+  ];
+
+  Logs -> Output [
+    label="Generate Reports"
+  ];
+
+  Alerts -> Output [
+    label="Trigger Warnings"
+  ];
+}

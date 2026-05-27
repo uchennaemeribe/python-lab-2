@@ -1,0 +1,41 @@
+# Python Virtual Environment
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Log Files
+*.log
+server-report.log
+alerts.log
+
+# Environment Variables
+.env
+
+# macOS Files
+.DS_Store
+
+# Windows Files
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Terraform (if later added)
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# AWS Credentials
+.aws/
+
+# SSH Keys
+*.pem
+*.key
+
+# Temporary Files
+*.tmp
+*.bak
