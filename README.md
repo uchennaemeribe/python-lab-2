@@ -966,6 +966,7 @@ monitoring-alert-project/
 ├── monitor.py
 ├── server-report.log
 ├── alerts.log
+├── .gitignore
 └── README.md
 ```
 
