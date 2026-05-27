@@ -443,7 +443,7 @@ Install Python and monitoring dependencies.
 ```bash
 sudo apt update
 ```
-
+![Server Update](screenshots/server-update.png)
 ---
 
 # Step 2 — Install Python
@@ -451,7 +451,7 @@ sudo apt update
 ```bash
 sudo apt install python3 python3-pip -y
 ```
-
+![Python Installation](screenshots/python-installation.png)
 ---
 
 # Step 3 — Install Python Virtual Environment
@@ -459,7 +459,7 @@ sudo apt install python3 python3-pip -y
 ```bash
 sudo apt install python3-venv -y
 ```
-
+![Python Virtual Environment Installation](screenshots/python-virtual-environment-installation.png)
 ---
 
 # Step 4 — Create Virtual Environment
@@ -467,7 +467,7 @@ sudo apt install python3-venv -y
 ```bash
 python3 -m venv venv
 ```
-
+![Virtual Environment Creation](screenshots/virtual-environment-creation.png)
 ---
 
 # Step 5 — Activate Virtual Environment
@@ -481,7 +481,7 @@ Expected:
 ```text
 (venv) ubuntu@ip-172-31-22-10
 ```
-
+![Virtual Environment Activation](screenshots/virtual-environment-activation.png)
 ---
 
 # Step 6 — Install psutil
@@ -499,7 +499,7 @@ Install:
 ```bash
 pip install psutil
 ```
-
+![Psutil Installation](screenshots/psutil-installation.png)
 ---
 
 # Step 7 — Verify Installation
@@ -513,7 +513,7 @@ Expected output includes:
 ```text
 psutil
 ```
-
+![Psutil Installation Verification](screenshots/psutil-installation-verification.png)
 ---
 
 # 🚀 PART 5 — Create Monitoring Project
@@ -531,7 +531,7 @@ mkdir monitoring-alert-project
 
 cd monitoring-alert-project
 ```
-
+![Project Directory Creation](screenshots/project-folder-creation-and-access.png)
 ---
 
 # Step 2 — Create Python Script
@@ -626,7 +626,7 @@ CTRL + O
 Enter
 CTRL + X
 ```
-
+![Python Script Creation](screenshots/python-script-creation.png)
 ---
 
 # 🚀 PART 7 — Run Monitoring Script
@@ -661,7 +661,7 @@ Disk Usage: 30%
 SERVER STATUS: HEALTHY
 ======================================
 ```
-
+![Python Script Execution](screenshots/python-script-execution.png)
 ---
 
 # 🚀 PART 8 — Save Monitoring Reports to Log File
@@ -677,7 +677,7 @@ Automatically save monitoring reports.
 ```bash
 python3 monitor.py >> server-report.log
 ```
-
+![Saved Script Output](screenshots/saved-script-output.png)
 ---
 
 # Step 2 — View Log File
@@ -685,7 +685,7 @@ python3 monitor.py >> server-report.log
 ```bash
 cat server-report.log
 ```
-
+![Log File Viewing](screenshots/log-file-viewing.png)
 ---
 
 # 🚀 PART 9 — Automate Monitoring with Cron Jobs
@@ -727,7 +727,7 @@ CTRL + O
 Enter
 CTRL + X
 ```
-
+![Cron Job Addition](screenshots/cron-job-addition.png)
 ---
 
 # Step 4 — Verify Automation
@@ -759,7 +759,7 @@ Generate real monitoring alerts.
 ```bash
 sudo apt install stress -y
 ```
-
+![Stress Tool Installation](screenshots/stress-tool-installation.png)
 ---
 
 # Step 2 — Run CPU Stress Test
@@ -767,7 +767,7 @@ sudo apt install stress -y
 ```bash
 stress --cpu 2 --timeout 60
 ```
-
+![CPU Stress Execution](screenshots/cpu-stress-test-execution.png)
 ---
 
 # Step 3 — Run Monitoring Script Again
@@ -783,7 +783,7 @@ python3 monitor.py
 ```text
 ALERT: HIGH CPU USAGE!
 ```
-
+![Subsequent Script Execution Monitoring](screenshots/monitoring-script-subsequent-execution.png)
 ---
 
 # 🚀 PART 11 — Create Real Alert Log File
@@ -832,7 +832,7 @@ CTRL + O
 Enter
 CTRL + X
 ```
-
+![Alert Logging Section Addition](screenshots/alert-logging-section-addition.png)
 ---
 
 # Step 4 — Run Script Again
@@ -840,7 +840,7 @@ CTRL + X
 ```bash
 python3 monitor.py
 ```
-
+![Subsequent Script Run](screenshots/subsequent-script-run.png)
 ---
 
 # Step 5 — View Alert Logs
@@ -856,6 +856,8 @@ cat alerts.log
 ```text
 2026-05-14 11:42:10 - HIGH CPU USAGE
 ```
+![Alert Logs View](screenshots/alert-logs-view.png)
+
 # 🚀 LAB 12 — Create .gitignore file
 
 Create:
@@ -951,7 +953,7 @@ git branch -M main
 6. Create GitHub repository:
 
 ```bash
-gh repo create python-lab2 --public --source=. --remote=origin --push
+gh repo create python-lab-2 --public --source=. --remote=origin --push
 ```
 ![Successful GitHub Repository Deployment](screenshots/successful-github-repo-deployment.png)
 ---
